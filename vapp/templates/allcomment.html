@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+    
+    <table class="table table-striped">
+        <tr> 
+             <th>Serial no</th>
+             <th>Title</th>
+             <th>Category</th>
+             <th>Author</th>
+             <th>Post Date</th>
+             <th>Content</th>
+             <th>Action</th>
+     
+        </tr>
+    
+             
+        {%for d,c in data%}
+             
+              
+        <tr>
+         
+            <td>{{loop.index}}</td>
+             
+            <td>{{d.post_title}}</td>
+            <td>{{c.cat_name}}</td>
+            <td>{{d.post_author}}</td>
+            <td>{{d.post_created_on}}</td>
+            <td>{{d.post_content}}.....</td>
+            <td><a href="{{url_for('edit_post',postid=d.id)}}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="/delete/post/{{d.id}}" class="btn btn-sm btn-danger">Delete</a></td>
+            
+         
+         
+        </tr>
+       
+        {% endfor %}
+     
+      
+       
+     </table>
+     
+{% endblock %}
+
+

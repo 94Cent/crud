@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+<h4>Post Comment</h4>
+<form action="" method="post">
+    <div class="mb-3">
+        <select name="category">
+        {% for cat in c %}
+            <option value="{{cat.cat_id}}">{{cat.cat_name}}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        
+            {% if pform.title.errors %}
+            {% for error in pform.title.errors %}
+                <span style="color:red">{{error}}</span><br>
+            {% endfor %}
+            {% endif %}
+        {{pform.title.label}}
+        {{pform.title (class_='form-control', placeholder='Enter Title')}}
+        
+    </div>
+    <div class="mb-3">
+        
+            {% if pform.content.errors %}
+            {% for error in pform.content.errors %}
+                <span style="color:red">{{error}}</span><br>
+            {% endfor %}
+            {% endif %}
+        {{pform.content.label}}
+        {{pform.content (class_='form-control', placeholder='Enter Title')}}
+        
+    </div>
+    <div class="mb-3">
+        
+        {% if pform.author.errors %}
+        {% for error in pform.author.errors %}
+            <span style="color:red">{{error}}</span><br>
+        {% endfor %}
+        {% endif %}
+    {{pform.author.label}}
+    {{pform.author (class_='form-control', placeholder='Author Name')}}
+    
+</div>
+    <div class="mb-3">
+        {{pform.csrf_token}}
+        {{pform.btn (class_='btn btn-primary')}}
+        
+    </div>
+    
+</form>
+{% endblock %}

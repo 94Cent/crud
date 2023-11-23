@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+{{e}}
+<form action="" method="post">
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    
+    <input type="text" value="{{e.post_title}}" class="form-control" name="title"><br>
+
+    <textarea class="form-control" name="content">{{e.post_content}}</textarea><br>
+
+    <button class="btn btn-success">Update</button>
+</form>
+
+{% endblock %}

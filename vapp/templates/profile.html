@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+{%set m= get_flashed_messages()%}
+{% for message in m %}
+    <P class="alert alert-info" > {{message}} </P>
+{% endfor %}
+
+<h6>Welcome {{session.get("loggedin")}}</h6>
+<p>This is your profile page</p>
+
+{% endblock content %}
+

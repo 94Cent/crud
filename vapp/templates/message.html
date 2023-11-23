@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+
+ 
+{% block content %}
+
+<div class="col-md-10">
+    <form action="{{url_for ('sendmessage')}}" method="post">
+        <div class="mb-3">
+            {%set msgs=get_flashed_messages%}
+                {{msgs}}
+            {% if cform.fullname.errors %}
+            {% for error in cform.fullname.errors %}
+                <span style="color:red">{{error}}</span><br>
+            {% endfor %}
+            {% endif %}
+            {{cform.fullname.label}}
+            {{cform.fullname (class_="form-control")}}
+
+        </div>
+
+        <div class="mb-3">
+            {% if cform.confirm_name.errors %}
+            {% for error in cform.confirm_name.errors %}
+               <span style="color:red">{{error}}</span><br>
+            {% endfor %}
+            {% endif %}
+            {{cform.confirm_name.label}}
+            {{cform.confirm_name (class_="form-control")}}
+        </div>
+
+        <div class="mb-3">
+            {% if cform.email.errors %}
+               {{cform.email.errors}}
+            {% endif %}
+            {{cform.email.label}}
+            {{cform.email (class_="form-control")}}
+
+        </div>
+        <div class="mb-3">
+            {% if cform.message.errors %}
+               {{cform.message.errors}}
+            {% endif %}
+            {{cform.message.label}}
+            {{cform.message (class_="form-control")}}
+
+        </div>
+
+        <div class="mb-3">
+            {{cform.btn(class_="btn btn-warning")}}
+        </div>
+        {{cform.csrf_token}}
+    </form>
+
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+

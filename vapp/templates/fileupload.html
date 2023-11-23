@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <form action="" enctype="multipart/form-data"  method="post">
+        <input type="file" name="pix">
+        <button>Upload!</button>
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+    </form>
+</div>
+
+{% endblock content %}

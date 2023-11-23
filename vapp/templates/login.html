@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="{{url_for('static', filename='bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+            <title>Login</title>
+        </head>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header"><h3 class="text-center font-weight-light my-4">Login Account</h3></div>
+                            <div class="card-body">
+                                <form action="" method="post">
+
+                                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                                    
+                                    <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" name="username" id="floatingInput" placeholder="username">
+                                    <label for="floatingInput">Username</label>
+                                    </div>
+                                    <div class="form-floating">
+                                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+                                    <label for="floatingPassword">Password</label>
+                                    </div>
+                                    <div class="form-floating">
+                                    <p>Don't have account? <a href="/register">Signup</a></p>
+                                    </div>
+                                    
+                                    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                                
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+          <footer class="container-fluid" style="height:100px; line-height:100px;text-align:center">
+            <p class="float-end"><a href="#" style="color:#FF5714">Back to top</a></p>
+            <p>&copy; 2017–2022 Vincent, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+          </footer>
+          
+          </main>
+          
+           <script src="{{ url_for('static',filename='assets/dist/js/bootstrap.bundle.min.js')}}"></script>
+          
+                
+            </body>
+          </html>
+
